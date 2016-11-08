@@ -1,0 +1,597 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Eric.Y,yuanjiayi,yuanjiyi.top" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="从零单排——面向对象角度认识JS世界part1在JavaScript世界中所有东西都是由对象构成下面我们来看三大对象：(BOM对象、内置对象、自定义对象)1.BOM对象BOM是浏览器对象模型的简称（全称为：Browser Object Model）
+常用的BOM对象：
+
+浏览器对象(navigator):提供有关浏览器的信息。
+窗口对象(window):window对象处于对象层次的最顶端，它提供">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Eric.Y's Blog">
+<meta property="og:url" content="http://yuanjiayi.top/2016/11/08/从零单排—面向对象认识JS世界（第一天）/index.html">
+<meta property="og:site_name" content="Eric.Y's Blog">
+<meta property="og:description" content="从零单排——面向对象角度认识JS世界part1在JavaScript世界中所有东西都是由对象构成下面我们来看三大对象：(BOM对象、内置对象、自定义对象)1.BOM对象BOM是浏览器对象模型的简称（全称为：Browser Object Model）
+常用的BOM对象：
+
+浏览器对象(navigator):提供有关浏览器的信息。
+窗口对象(window):window对象处于对象层次的最顶端，它提供">
+<meta property="og:updated_time" content="2016-10-28T09:30:39.198Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Eric.Y's Blog">
+<meta name="twitter:description" content="从零单排——面向对象角度认识JS世界part1在JavaScript世界中所有东西都是由对象构成下面我们来看三大对象：(BOM对象、内置对象、自定义对象)1.BOM对象BOM是浏览器对象模型的简称（全称为：Browser Object Model）
+常用的BOM对象：
+
+浏览器对象(navigator):提供有关浏览器的信息。
+窗口对象(window):window对象处于对象层次的最顶端，它提供">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yuanjiayi.top/2016/11/08/从零单排—面向对象认识JS世界（第一天）/"/>
+
+
+  <title>  | Eric.Y's Blog </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Eric.Y's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">术有崖，心无边</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+            Kategorien
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+            Über
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule" rel="section">
+            
+            Schedule
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-11-08T09:57:50+08:00" content="2016-11-08">
+              2016-11-08
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="从零单排——面向对象角度认识JS世界"><a href="#从零单排——面向对象角度认识JS世界" class="headerlink" title="从零单排——面向对象角度认识JS世界"></a>从零单排——面向对象角度认识JS世界</h1><h2 id="part1"><a href="#part1" class="headerlink" title="part1"></a>part1</h2><h3 id="在JavaScript世界中所有东西都是由对象构成"><a href="#在JavaScript世界中所有东西都是由对象构成" class="headerlink" title="在JavaScript世界中所有东西都是由对象构成"></a>在JavaScript世界中所有东西都是由对象构成</h3><h4 id="下面我们来看三大对象：-BOM对象、内置对象、自定义对象"><a href="#下面我们来看三大对象：-BOM对象、内置对象、自定义对象" class="headerlink" title="下面我们来看三大对象：(BOM对象、内置对象、自定义对象)"></a>下面我们来看三大对象：(BOM对象、内置对象、自定义对象)</h4><h4 id="1-BOM对象"><a href="#1-BOM对象" class="headerlink" title="1.BOM对象"></a>1.BOM对象</h4><p>BOM是浏览器对象模型的简称（全称为：Browser Object Model）</p>
+<p>常用的BOM对象：</p>
+<ul>
+<li>浏览器对象(navigator):提供有关浏览器的信息。</li>
+<li>窗口对象(window):window对象处于对象层次的最顶端，它提供了处理Navigator窗口的方法和属性。</li>
+<li>框架对象(frame):包含了框架的版面布局信息，以及每一个框架所对应的窗口对象。</li>
+<li>位置对象(location):提供了与当前打开的URL一起工作的方法和属性，是一个静态的对象。</li>
+<li>历史对象(history):提供了与历史清单有关的信息。</li>
+<li>文档对象(document):包含了与文档元素一起工作的对象，它将这些元素封装起来供编程人员使用。文档对象是浏览器对象模型的核心，对于实现Web页面信息交互起到关键作用。</li>
+<li>客户端显示屏幕对象(screen):Screen 对象中存放着有关显示浏览器屏幕的信息。</li>
+</ul>
+<p>在JavaScript中对象之间并不是独立存在的，对象与对象之间有着层次关系。如Document对象是Window对象的子对象。浏览器对象模型就是用于描述这种对象与对象之间层次关系的模型，该对象模型提供了独立于内容的、可以与浏览器窗口进行互动的对象结构。BOM由多个对象组成，其中代表浏览器窗口的Window对象是BOM的顶层对象，其他对象都是该对象的子对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//所有BOM对象都是window的一个属性</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">document</span> === <span class="built_in">window</span>.document);<span class="comment">//ture</span></div><div class="line"><span class="built_in">console</span>.log(location === <span class="built_in">window</span>.location);<span class="comment">//ture</span></div><div class="line"><span class="built_in">console</span>.log(history === <span class="built_in">window</span>.history);<span class="comment">//ture</span></div><div class="line"><span class="built_in">console</span>.log(navigator === <span class="built_in">window</span>.navigator);<span class="comment">//ture</span></div><div class="line"><span class="built_in">console</span>.log(screen === <span class="built_in">window</span>.screen);<span class="comment">//ture</span></div></pre></td></tr></table></figure>
+<h4 id="一起来操作一次BOM对象"><a href="#一起来操作一次BOM对象" class="headerlink" title="一起来操作一次BOM对象"></a>一起来操作一次BOM对象</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang="en"&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset="utf-8"&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">  	&lt;button id="btn"&gt;打开新窗口&lt;/button&gt;</div><div class="line">    &lt;script type="text/javascript"&gt;</div><div class="line">    document.getElementById("btn").onclick = function ()&#123;</div><div class="line">    	window.open('http://www.baidu.com');</div><div class="line">    &#125;</div><div class="line">    &lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div><div class="line">//点击按钮后打开一个新的窗口标签并连接到baidu。</div></pre></td></tr></table></figure>
+<h4 id="我们甚至可以控制打开window窗口的各个属性-动手试一试一下代码吧："><a href="#我们甚至可以控制打开window窗口的各个属性-动手试一试一下代码吧：" class="headerlink" title="我们甚至可以控制打开window窗口的各个属性,动手试一试一下代码吧："></a>我们甚至可以控制打开window窗口的各个属性,动手试一试一下代码吧：</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang="en"&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset="utf-8"&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">  	&lt;button id="btn"&gt;打开新窗口&lt;/button&gt;</div><div class="line">    &lt;script type="text/javascript"&gt;</div><div class="line">    document.getElementById("btn").onclick = function ()&#123;</div><div class="line">    	window.open('http://www.baidu.com','newwindow','height=100,width=400,top=100,left=100,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no');</div><div class="line">    &#125;</div><div class="line">    &lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h5 id="location对象打开新页面、刷新页面"><a href="#location对象打开新页面、刷新页面" class="headerlink" title="location对象打开新页面、刷新页面"></a>location对象打开新页面、刷新页面</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang="en"&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset="utf-8"&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">  	&lt;button id="btn"&gt;打开新网页&lt;/button&gt;</div><div class="line">	&lt;button id="btn1"&gt;刷新网页&lt;/button&gt;</div><div class="line">    &lt;script type="text/javascript"&gt;</div><div class="line">    document.getElementById("btn").onclick = function ()&#123;</div><div class="line">    	window.location = 'http://www.baidu.com' ;//改变当前窗口地址，会打开新的网页</div><div class="line">    &#125;</div><div class="line">	document.getElementById("btn1").onclick = function ()&#123;</div><div class="line">    	location.reload();//刷新当前页面</div><div class="line">    &#125;</div><div class="line">    &lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h5 id="history对象前进、后退和go"><a href="#history对象前进、后退和go" class="headerlink" title="history对象前进、后退和go()"></a>history对象前进、后退和go()</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head lang="en"&gt;</div><div class="line">    &lt;meta charset="UTF-8"&gt;</div><div class="line">    &lt;title&gt;&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;input type=button value=刷新 onclick="window.location.reload()"&gt;</div><div class="line">&lt;input type=button value=前进 onclick="window.history.go(1)"&gt;</div><div class="line">&lt;input type=button value=后退 onclick="window.history.go(-1)"&gt;</div><div class="line">&lt;input type=button value=前进 onclick="window.history.forward()"&gt;</div><div class="line">&lt;input type=button value=后退</div><div class="line">       onclick="window.history.back()"&gt;</div><div class="line">&lt;input type=button value=后退+刷新</div><div class="line">       onclick="window.history.go(-1);window.location.reload()"&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h5 id="利用userAgent属性判断是哪个浏览器"><a href="#利用userAgent属性判断是哪个浏览器" class="headerlink" title="利用userAgent属性判断是哪个浏览器"></a>利用userAgent属性判断是哪个浏览器</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head lang="en"&gt;</div><div class="line">    &lt;meta charset="UTF-8"&gt;</div><div class="line">    &lt;title&gt;&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    function CheckBrowser()&#123;</div><div class="line">        var u_agent = navigator.userAgent;</div><div class="line">        var browser_name='未知浏览器';</div><div class="line">        if(u_agent.indexOf('Firefox')&gt;-1)&#123;</div><div class="line">            browser_name='Firefox';</div><div class="line">        &#125;else if(u_agent.indexOf('Chrome')&gt;-1)&#123;</div><div class="line">            browser_name='Chrome';</div><div class="line">        &#125;else if(u_agent.indexOf('Trident')&gt;-1&amp;&amp;u_agent.indexOf('rv:11')&gt;-1)&#123;</div><div class="line">            browser_name='IE11';</div><div class="line">        &#125;else if(u_agent.indexOf('MSIE')&gt;-1&amp;&amp;u_agent.indexOf('Trident')&gt;-1)&#123;</div><div class="line">            browser_name='IE(8-10)';</div><div class="line">        &#125;else if(u_agent.indexOf('MSIE')&gt;-1)&#123;</div><div class="line">            browser_name='IE(6-7)';</div><div class="line">        &#125;else if(u_agent.indexOf('Opera')&gt;-1)&#123;</div><div class="line">            browser_name='Opera';</div><div class="line">        &#125;else&#123;</div><div class="line">            browser_name+=',info:'+u_agent;</div><div class="line">        &#125;</div><div class="line">        document.write('浏览器类型为:'+browser_name+'&lt;br&gt;');</div><div class="line">        document.write('userAgent属性值为:'+u_agent+'&lt;br&gt;');</div><div class="line">    &#125;</div><div class="line"></div><div class="line">CheckBrowser()</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h2 id="未完待续。。。"><a href="#未完待续。。。" class="headerlink" title="未完待续。。。"></a>未完待续。。。</h2>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/26/正则表达式/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/08/面向对象part1/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Eric.Y" />
+          <p class="site-author-name" itemprop="name">Eric.Y</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#从零单排——面向对象角度认识JS世界"><span class="nav-number">1.</span> <span class="nav-text">从零单排——面向对象角度认识JS世界</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#part1"><span class="nav-number">1.1.</span> <span class="nav-text">part1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在JavaScript世界中所有东西都是由对象构成"><span class="nav-number">1.1.1.</span> <span class="nav-text">在JavaScript世界中所有东西都是由对象构成</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#下面我们来看三大对象：-BOM对象、内置对象、自定义对象"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">下面我们来看三大对象：(BOM对象、内置对象、自定义对象)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-BOM对象"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">1.BOM对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一起来操作一次BOM对象"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">一起来操作一次BOM对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#我们甚至可以控制打开window窗口的各个属性-动手试一试一下代码吧："><span class="nav-number">1.1.1.4.</span> <span class="nav-text">我们甚至可以控制打开window窗口的各个属性,动手试一试一下代码吧：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#location对象打开新页面、刷新页面"><span class="nav-number">1.1.1.4.1.</span> <span class="nav-text">location对象打开新页面、刷新页面</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#history对象前进、后退和go"><span class="nav-number">1.1.1.4.2.</span> <span class="nav-text">history对象前进、后退和go()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#利用userAgent属性判断是哪个浏览器"><span class="nav-number">1.1.1.4.3.</span> <span class="nav-text">利用userAgent属性判断是哪个浏览器</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#未完待续。。。"><span class="nav-number">1.2.</span> <span class="nav-text">未完待续。。。</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Eric.Y</span>
+</div>
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
