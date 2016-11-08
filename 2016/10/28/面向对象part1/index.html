@@ -21,12 +21,12 @@
 <meta property="og:url" content="http://yuanjiayi.top/2016/10/28/面向对象part1/index.html">
 <meta property="og:site_name" content="Eric.Y's Blog">
 <meta property="og:description" content="面向对象学习笔记">
-<meta property="og:image" content="http://yuanjiayi.top/1.jpg">
-<meta property="og:updated_time" content="2016-11-08T02:58:46.559Z">
+<meta property="og:image" content="http://yuanjiayi.top/img/1.jpg">
+<meta property="og:updated_time" content="2016-11-08T06:59:12.996Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面向对象笔记">
 <meta name="twitter:description" content="面向对象学习笔记">
-<meta name="twitter:image" content="http://yuanjiayi.top/1.jpg">
+<meta name="twitter:image" content="http://yuanjiayi.top/img/1.jpg">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -74,12 +74,14 @@
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
         scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
-        search: undefined
+        search: true
     }
 </script>
 
 
-    <script> yiliaConfig.jquery_ui = [false]; </script>
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
 
 
 
@@ -109,48 +111,15 @@
         
 
         
-
-
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="true" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
         
-            <div id="switch-btn" class="switch-btn">
-                <div class="icon">
-                    <div class="icon-ctn">
-                        <div class="icon-wrap icon-house" data-idx="0">
-                            <div class="birdhouse"></div>
-                            <div class="birdhouse_holes"></div>
-                        </div>
-                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
-                            <div class="ribbon"></div>
-                        </div>
-                        
-                        <div class="icon-wrap icon-link hide" data-idx="2">
-                            <div class="loopback_l"></div>
-                            <div class="loopback_r"></div>
-                        </div>
-                        
-                        
-                        <div class="icon-wrap icon-me hide" data-idx="3">
-                            <div class="user"></div>
-                            <div class="shoulder"></div>
-                        </div>
-                        
-                    </div>
-                    
-                </div>
-                <div class="tips-box hide">
-                    <div class="tips-arrow"></div>
-                    <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
-                        
-                        <li>友情链接</li>
-                        
-                        
-                        <li>关于我</li>
-                        
-                    </ul>
-                </div>
-            </div>
+
+
         
 
         <div id="switch-area" class="switch-area">
@@ -172,7 +141,7 @@
                     <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" href="/330365043@qq.com" title="Email"></a>
+                                <a class="fa Email" href="mailto:330365043@qq.com" title="Email"></a>
                             
                                 <a class="fa 新浪微博" href="http://weibo.com/u/1724527347/home" title="新浪微博"></a>
                             
@@ -182,12 +151,6 @@
                     </nav>
                 </section>
                 
-                
-                <section class="switch-part switch-part2">
-                    <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web前端/">web前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/正则表达式/">正则表达式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面向对象，OOP/">面向对象，OOP</a></li></ul>
-                    </div>
-                </section>
                 
                 
                 
@@ -250,7 +213,7 @@
             <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fa Email" target="_blank" href="/330365043@qq.com" title="Email"></a>
+                                <a class="fa Email" target="_blank" href="mailto:330365043@qq.com" title="Email"></a>
                             
                                 <a class="fa 新浪微博" target="_blank" href="http://weibo.com/u/1724527347/home" title="新浪微博"></a>
                             
@@ -306,8 +269,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="创建对象的方式"><a href="#创建对象的方式" class="headerlink" title="创建对象的方式"></a>创建对象的方式</h3><h6 id="2016-10-21-part1"><a href="#2016-10-21-part1" class="headerlink" title="2016/10/21 part1"></a>2016/10/21 part1</h6><p>## </p>
-<h4 id="第一种创建对象的方式："><a href="#第一种创建对象的方式：" class="headerlink" title="第一种创建对象的方式："></a>第一种创建对象的方式：</h4><p>创建JSON对象<br>推荐使用的场合： 作为函数的参数，临时只用一次的场景。比如设置函数原型对象。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var object = &#123;</div><div class="line">	name: "Eric",</div><div class="line">	age: 24,</div><div class="line">	sayHi: function()&#123;</div><div class="line">		console.log("My name is "+ this.name + " this year is " + this.age + "years old.")</div><div class="line">	&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+        <h3 id="创建对象的方式"><a href="#创建对象的方式" class="headerlink" title="创建对象的方式"></a>创建对象的方式</h3><h6 id="2016-10-21-part1"><a href="#2016-10-21-part1" class="headerlink" title="2016/10/21 part1"></a>2016/10/21 part1</h6><h4 id="第一种创建对象的方式："><a href="#第一种创建对象的方式：" class="headerlink" title="第一种创建对象的方式："></a>第一种创建对象的方式：</h4><p>创建JSON对象<br>推荐使用的场合： 作为函数的参数，临时只用一次的场景。比如设置函数原型对象。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var object = &#123;</div><div class="line">	name: "Eric",</div><div class="line">	age: 24,</div><div class="line">	sayHi: function()&#123;</div><div class="line">		console.log("My name is "+ this.name + " this year is " + this.age + "years old.")</div><div class="line">	&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
 <h4 id="第二种创建对象的方式："><a href="#第二种创建对象的方式：" class="headerlink" title="第二种创建对象的方式："></a>第二种创建对象的方式：</h4><p>创建一个Object对象<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var object = new Object();</div><div class="line">object.name = "Eric";</div><div class="line">object.age = 24;</div><div class="line">object.sayHi = function()&#123;....&#125;;</div></pre></td></tr></table></figure></p>
 <h5 id="以上两种创建对象方式的缺点-不能作为对象创建的模板，也就是不能用new进行构造新对象。"><a href="#以上两种创建对象方式的缺点-不能作为对象创建的模板，也就是不能用new进行构造新对象。" class="headerlink" title="以上两种创建对象方式的缺点:不能作为对象创建的模板，也就是不能用new进行构造新对象。"></a>以上两种创建对象方式的缺点:不能作为对象创建的模板，也就是不能用new进行构造新对象。</h5><p>=================================================================</p>
 <h4 id="第三种创建对象的方式："><a href="#第三种创建对象的方式：" class="headerlink" title="第三种创建对象的方式："></a>第三种创建对象的方式：</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function Person() &#123;</div><div class="line">	this.name = "Eric";</div><div class="line">	this.age = 24;</div><div class="line">	this.sayHi = function()&#123;</div><div class="line">		console.log(this.name);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var object1 = new Person();</div><div class="line">var object2 = new Person();</div></pre></td></tr></table></figure>
@@ -315,10 +277,10 @@
 <li>执行构造函数（new后面的那个函数），在构造函数内部创建一个空对象</li>
 <li>把上一部创建的空对象跟构造函数的原型对象进行关联</li>
 <li>然后把this指向当前空对象</li>
-<li>在构造函数执行结束后，如果没有return，把空对象返回给object<br><img src="1.jpg" alt="new运算符原理"><a id="more"></a>
-第三种方式有个缺点： 对象的内部的函数会在每个对象中都存一份如果创建的对象非常多的话，那么非常浪费内存。函数的行为是所有对象可以共有，不需要每个对象都保存一份。所以，可以把函数放到原型中进行声明，那么所有对象都有了公共的函数，而且内存中只保留一份。所有的属性写到对象的内部<h4 id="第三种方式beta1："><a href="#第三种方式beta1：" class="headerlink" title="第三种方式beta1："></a>第三种方式beta1：</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function Person() &#123;</div><div class="line">   	this.name = 'Eric';</div><div class="line">   	this.age = 24;</div><div class="line">&#125;</div><div class="line">Person.prototype = &#123;</div><div class="line">   	sayHi: function() &#123;</div><div class="line">   	&#125;,</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var object1 = new Person();</div><div class="line">var object2 = new Person();</div></pre></td></tr></table></figure>
-</li>
+<li>在构造函数执行结束后，如果没有return，把空对象返回给object<br><img src="/img/1.jpg" alt="new运算符原理"></li>
 </ol>
+<p>第三种方式有个缺点： 对象的内部的函数会在每个对象中都存一份如果创建的对象非常多的话，那么非常浪费内存。函数的行为是所有对象可以共有，不需要每个对象都保存一份。所以，可以把函数放到原型中进行声明，那么所有对象都有了公共的函数，而且内存中只保留一份。所有的属性写到对象的内部</p>
+<h4 id="第三种方式beta1："><a href="#第三种方式beta1：" class="headerlink" title="第三种方式beta1："></a>第三种方式beta1：</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function Person() &#123;</div><div class="line">   	this.name = 'Eric';</div><div class="line">   	this.age = 24;</div><div class="line">&#125;</div><div class="line">Person.prototype = &#123;</div><div class="line">   	sayHi: function() &#123;</div><div class="line">   	&#125;,</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var object1 = new Person();</div><div class="line">var object2 = new Person();</div></pre></td></tr></table></figure>
 <h4 id="继续升级-beta2-："><a href="#继续升级-beta2-：" class="headerlink" title="继续升级 beta2 ："></a>继续升级 beta2 ：</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function Person(name,age) &#123;</div><div class="line">   	this.name = name || "";</div><div class="line">   	this.age = age || "";</div><div class="line">&#125;</div><div class="line">Person.prototype = &#123;</div><div class="line">   	sayHi: function() &#123;</div><div class="line">   	&#125;,</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var object1 = new Person(name1,age1);</div><div class="line">var object2 = new Person(name2,age2);</div></pre></td></tr></table></figure>
 <p>问题：1、调用者如果传递参数的顺序发生变化，那么废了<br>问题：2、参数增减都会导致函数声明变化，调用的地方也可能发生变化。</p>
 <h4 id="如何解决：继续升级-beta3"><a href="#如何解决：继续升级-beta3" class="headerlink" title="如何解决：继续升级 beta3 :"></a>如何解决：继续升级 beta3 :</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">function Person(option) &#123; //用一个对象把所有参数覆盖</div><div class="line">   	this.name = option.name || "";</div><div class="line">   	this.age = option.age || "";</div><div class="line">&#125;</div><div class="line">Person.prototype = &#123;</div><div class="line">   	sayHi: function() &#123;</div><div class="line">   	&#125;,</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var object1 = new Person(&#123;</div><div class="line">		name: "Eric",</div><div class="line">		age: 24</div><div class="line">	&#125;);</div><div class="line">var object2 = new Person(&#123;</div><div class="line">		name: "XXX",</div><div class="line">		age: xx</div><div class="line">	&#125;);</div></pre></td></tr></table></figure>
@@ -334,7 +296,7 @@
         <p><span>本文标题:</span><a href="/2016/10/28/面向对象part1/">面向对象笔记</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Eric.Y</a></p>
         <p><span>发布时间:</span>2016-10-28, 00:00:00</p>
-        <p><span>最后更新:</span>2016-11-08, 10:58:46</p>
+        <p><span>最后更新:</span>2016-11-08, 14:59:12</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/10/28/面向对象part1/" title="面向对象笔记">http://yuanjiayi.top/2016/10/28/面向对象part1/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yuanjiayi.top/2016/10/28/面向对象part1/　　作者: Eric.Y" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -351,8 +313,8 @@
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/10/26/正则表达式/">
-                    正则表达式
+                <a href="/2016/10/26/从零单排—面向对象认识JS世界（第一天）/">
+                    从零单排——面向对象角度认识JS世界Part1
                 </a>
             </div>
         
@@ -414,6 +376,25 @@
 
 
     
+      <div class="duoshuo" id="comments">
+    <div id="comment-box" ></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/10/28/面向对象part1/" data-title="面向对象笔记" data-url="http://yuanjiayi.top/2016/10/28/面向对象part1/"></div>
+    <script>
+        var duoshuoQuery = {short_name:"yuanjiyi920605"};
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            s.async = true; s.charset = 'UTF-8';
+            (d.head || d.body).appendChild(s);
+        }
+
+        
+    </script>
+    
+    <script> loadComment(); </script>
+
+</div>
+    
 
 
 
@@ -426,13 +407,13 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/10/26/正则表达式/" title="下一篇: 正则表达式">
+            <a href="/2016/10/26/从零单排—面向对象认识JS世界（第一天）/" title="下一篇: 从零单排——面向对象角度认识JS世界Part1">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/10/28/面向对象part1/">面向对象笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/26/正则表达式/">正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/26/从零单排—面向对象认识JS世界（第一天）/">从零单排——面向对象角度认识JS世界Part1</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/24/replace高级/">replace高级</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/10/28/面向对象part1/">面向对象笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/26/从零单排—面向对象认识JS世界（第一天）/">从零单排——面向对象角度认识JS世界Part1</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/26/正则表达式/">正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/24/replace高级/">replace高级</a></li></ul>
 
 
 
