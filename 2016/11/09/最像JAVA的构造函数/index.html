@@ -15,18 +15,16 @@
 
 
 
-<meta name="description" content="日常牢骚">
+<meta name="description" content="面向对象学习笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="随便写写">
-<meta property="og:url" content="http://yuanjiayi.top/2016/11/08/随便写写/index.html">
+<meta property="og:title" content="最像JAVA的构造函数">
+<meta property="og:url" content="http://yuanjiayi.top/2016/11/09/最像JAVA的构造函数/index.html">
 <meta property="og:site_name" content="Eric.Y's Blog">
-<meta property="og:description" content="日常牢骚">
-<meta property="og:image" content="http://yuanjiayi.top/img/react.jpg">
-<meta property="og:updated_time" content="2016-11-08T12:57:54.756Z">
+<meta property="og:description" content="面向对象学习笔记">
+<meta property="og:updated_time" content="2016-11-09T08:34:14.413Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="随便写写">
-<meta name="twitter:description" content="日常牢骚">
-<meta name="twitter:image" content="http://yuanjiayi.top/img/react.jpg">
+<meta name="twitter:title" content="最像JAVA的构造函数">
+<meta name="twitter:description" content="面向对象学习笔记">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -58,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>随便写写 | Eric.Y&#39;s Blog</title>
+<title>最像JAVA的构造函数 | Eric.Y&#39;s Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -222,11 +220,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-随便写写" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-最像JAVA的构造函数" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/11/08/随便写写/" class="article-date">
-      <time datetime="2016-11-07T16:00:00.000Z" itemprop="datePublished">2016-11-08</time>
+      <a href="/2016/11/09/最像JAVA的构造函数/" class="article-date">
+      <time datetime="2016-11-08T16:00:00.000Z" itemprop="datePublished">2016-11-09</time>
 </a>
 
 
@@ -241,7 +239,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      随便写写
+      最像JAVA的构造函数
     </h1>
   
 
@@ -250,13 +248,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/随便写写/">随便写写</a>
+    <a class="article-category-link" href="/categories/javascript/">javascript</a><a class="article-category-link" href="/categories/javascript/面向对象/">面向对象</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随便写写/">随便写写</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面向对象，OOP，构造函数/">面向对象，OOP，构造函数</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -266,8 +264,23 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>最近其实都没有时间看书，之前一直关注的这本《深入React技术栈》11月终于开印了，没忍住下了单。这个月又有双十一，准备剁手了T-T！！</p>
-<p>一直对React Native很感兴趣，电脑环境都配好两星期了一直没有动手（这几天Dota打得飞起），希望这本书可以给我带来更多行动力吧！！<br><img src="/img/react.jpg" alt="深入React技术栈"></p>
+        <p>需求：创建一个构造函数，拥有只读、不可删除的id属性；不可删除的name属性；不可遍历、不可删除的salary属性；受访问器属性保护的age属性；<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Emp</span>(<span class="params">id,name,salary,age</span>)</span>&#123;</div><div class="line">        <span class="keyword">this</span>.id=id;</div><div class="line">        <span class="keyword">this</span>.name=name;</div><div class="line">        <span class="keyword">this</span>.salary=salary;</div><div class="line">        <span class="keyword">this</span>.name=name;</div><div class="line">        <span class="keyword">var</span> _age;</div><div class="line">        <span class="built_in">Object</span>.defineProperties(<span class="keyword">this</span>,&#123;</div><div class="line">          <span class="attr">id</span>:&#123;<span class="attr">writable</span>:<span class="literal">false</span>&#125;,</div><div class="line">          <span class="attr">salary</span>:&#123;<span class="attr">enumerable</span>:<span class="literal">false</span>&#125;,</div><div class="line">          <span class="attr">age</span>:&#123;</div><div class="line">            <span class="attr">get</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> _age&#125;,</div><div class="line">            <span class="attr">set</span>:<span class="function"><span class="keyword">function</span>(<span class="params">val</span>)</span>&#123;</div><div class="line">              <span class="keyword">if</span>(val&lt;<span class="number">18</span>||val&gt;<span class="number">35</span>)<span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"年龄必须介于18~35"</span>);</div><div class="line">              _age=val;</div><div class="line">            &#125;</div><div class="line">          &#125;</div><div class="line">        &#125;)</div><div class="line">        <span class="keyword">this</span>.age=age;</div><div class="line">		<span class="built_in">Object</span>.seal(<span class="keyword">this</span>);<span class="comment">//密封防篡改</span></div><div class="line">      &#125;</div><div class="line">      <span class="keyword">var</span> eric = <span class="keyword">new</span> Emp(<span class="number">1001</span>,<span class="string">"eric"</span>,<span class="number">10000</span>,<span class="number">19</span>);</div><div class="line">      <span class="built_in">console</span>.dir(eric);</div><div class="line">	  <span class="built_in">console</span>.log(eric.age);<span class="comment">//19</span></div></pre></td></tr></table></figure></p>
+<p>##对象属性</p>
+<h3 id="数据属性："><a href="#数据属性：" class="headerlink" title="数据属性："></a>数据属性：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*四大特性*/</span></div><div class="line">&#123;</div><div class="line">   <span class="attr">value</span>: 属性值,</div><div class="line">   <span class="attr">writable</span>: <span class="literal">true</span>/<span class="literal">false</span>,  <span class="comment">//控制是否可修改</span></div><div class="line">   enumerable: <span class="literal">true</span>/<span class="literal">false</span>, <span class="comment">//控制是否可被for in遍历</span></div><div class="line">   configurable: <span class="literal">true</span>/<span class="literal">false</span>, <span class="comment">//1. 控制是否可删除</span></div><div class="line">                             <span class="comment">//2. 控制是否可修改前两个属性</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">configurable一旦改为<span class="literal">false</span>，不可逆</div></pre></td></tr></table></figure>
+<h3 id="访问器属性："><a href="#访问器属性：" class="headerlink" title="访问器属性："></a>访问器属性：</h3><ul>
+<li>试图读取访问器属性的值时，自动调用get方法</li>
+<li>试图修改访问器属性的值时，自动调用set方法，参数value可自动获得想要赋值的新值</li>
+<li>如果省略set方法，则该访问器属性相当于只读</li>
+<li>被访问器属性保护的值，应该保持在受闭包保护的局部变量中<br>例：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;     、</div><div class="line">	<span class="keyword">var</span> _age=<span class="number">24</span>;<span class="comment">//受保护的变量     </span></div><div class="line">	<span class="built_in">Object</span>.defineProperty(obj,<span class="string">"属性名"</span>,&#123;         </div><div class="line">		<span class="attr">get</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> _age;&#125;         </div><div class="line">		set:<span class="function"><span class="keyword">function</span>(<span class="params">val</span>)</span>&#123;<span class="comment">//验证val, 再_age=val&#125;         </span></div><div class="line">		enumerable: ,  <span class="attr">configurable</span>: ,     </div><div class="line">	&#125;) </div><div class="line">&#125;)()</div></pre></td></tr></table></figure>
+<p>##防篡改</p>
+<p>###防扩展：</p>
+<p>判断是否已禁止防扩展： Object.isExtensible(obj);<br>设置方扩展：Object.preventExtensions(obj);</p>
+<p>###密封：（在防扩展的基础上，禁止删除现有属性）</p>
+<p>判断是否已密封：Object.isSealed(obj);<br>密封对象：Object.seal(obj);</p>
+<p>###冻结：（在密封的基础上，禁止修改所有属性）</p>
+<p>判断是否被冻结：Object.isFrozen(obj);<br>冻结对象：Object.fteeze(obj);</p>
 
       
     </div>
@@ -276,13 +289,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/11/08/随便写写/">随便写写</a></p>
+        <p><span>本文标题:</span><a href="/2016/11/09/最像JAVA的构造函数/">最像JAVA的构造函数</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Eric.Y</a></p>
-        <p><span>发布时间:</span>2016-11-08, 00:00:00</p>
-        <p><span>最后更新:</span>2016-11-08, 20:57:54</p>
+        <p><span>发布时间:</span>2016-11-09, 00:00:00</p>
+        <p><span>最后更新:</span>2016-11-09, 16:34:14</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/11/08/随便写写/" title="随便写写">http://yuanjiayi.top/2016/11/08/随便写写/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yuanjiayi.top/2016/11/08/随便写写/　　作者: Eric.Y" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/11/09/最像JAVA的构造函数/" title="最像JAVA的构造函数">http://yuanjiayi.top/2016/11/09/最像JAVA的构造函数/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yuanjiayi.top/2016/11/09/最像JAVA的构造函数/　　作者: Eric.Y" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -294,16 +307,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/11/09/最像JAVA的构造函数/">
-                    最像JAVA的构造函数
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/11/06/从零单排—面向对象认识JS世界（第二天）/">
-                    从零单排——面向对象角度认识JS世界Part2
+                <a href="/2016/11/08/随便写写/">
+                    随便写写
                 </a>
             </div>
         
@@ -315,7 +322,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#数据属性："><span class="toc-number">1.</span> <span class="toc-text">数据属性：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#访问器属性："><span class="toc-number">2.</span> <span class="toc-text">访问器属性：</span></a></li></ol>
         
     </div>
     <style>
@@ -351,7 +358,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"随便写写　| Eric.Y's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"最像JAVA的构造函数　| Eric.Y's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -367,7 +374,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/08/随便写写/" data-title="随便写写" data-url="http://yuanjiayi.top/2016/11/08/随便写写/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2016/11/09/最像JAVA的构造函数/" data-title="最像JAVA的构造函数" data-url="http://yuanjiayi.top/2016/11/09/最像JAVA的构造函数/"></div>
     <script>
         var duoshuoQuery = {short_name:"yuanjiyi920605"};
         var loadComment = function(){
@@ -390,15 +397,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/11/09/最像JAVA的构造函数/" title="上一篇: 最像JAVA的构造函数">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/11/06/从零单排—面向对象认识JS世界（第二天）/" title="下一篇: 从零单排——面向对象角度认识JS世界Part2">
+            <a href="/2016/11/08/随便写写/" title="下一篇: 随便写写">
                 <i class="fa fa-angle-right"></i>
             </a>
         
